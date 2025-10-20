@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #74b9ff, #a29bfe);
+  overflow: hidden;
+  transition: background 1s ease;
+}
+
+/* ☀️ Sun */
+.sun {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ffe066, #f9ca24);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255, 255, 0, 0.6);
+  animation: spin 20s linear infinite;
+}
+
+/* ☁️ Clouds */
+.cloud {
+  position: absolute;
+  background: #fff;
+  background: radial-gradient(circle, #ffffff 60%, #dfe6e9 100%);
+  border-radius: 50%;
+  animation: moveClouds 40s linear infinite;
+  opacity: 0.8;
+}
+
+.cloud1 {
+  width: 120px;
+  height: 70px;
+  top: 100px;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.cloud2 {
+  width: 200px;
+  height: 100px;
+  top: 180px;
+  left: -250px;
+  animation-delay: 10s;
+}
+
+/* 🌧️ Rain */
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.5) 2px, transparent 2px);
+  background-size: 2px 20px;
+  animation: rainFall 0.4s linear infinite;
+  display: none;
+}
+
+/* Weather App Container */
+.app {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 25px;
+  border-radius: 20px;
+  width: 320px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-box {
+  margin: 15px 0;
+}
+
+input {
+  padding: 10px;
+  width: 65%;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  background: #0984e3;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #74b9ff;
+}
+
+.weather-card {
+  margin-top: 20px;
+  display: none;
+}
+
+.weather-card img {
+  width: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+/* Animations */
+@keyframes moveClouds {
+  0% { left: -200px; }
+  100% { left: 110%; }
+}
+
+@keyframes rainFall {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 20px; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
